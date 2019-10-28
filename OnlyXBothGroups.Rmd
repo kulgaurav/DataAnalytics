@@ -1,0 +1,33 @@
+```{r}
+library(partykit)
+library(rpart)
+library(sqldf)
+data <- read.csv("C:\\Users\\Kul\\Downloads\\18 oct\\Classes\\Data Analytics\\Project Data.csv", header=TRUE, sep=",")
+str(data)
+attach(data)
+```
+
+```{r}
+data1 <-  sqldf('select Response,"Group",X1,X2,X3,X4,X5,X6,X7 from data')
+str(data1)
+```
+
+```{r}
+d_model_1 <- rpart(data1$Response ~ . , data = data1, control=rpart.control(minsplit=60, minbucket=30, maxdepth=4))
+
+plot(as.party(d_model_1))
+print(d_model_1)
+```
+```{r}
+print(d_model_1$cptable)
+```
+
+```{r}
+opt <- which.min(d_model_1$cptable [, "xerror"])
+
+cp <- d_model_1$cptable [opt,"CP"]
+DT_Model_1_pruned <- prune(d_model_1, cp=cp)
+plot(as.party(DT_Model_1_pruned))
+
+```
+
