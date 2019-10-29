@@ -3,7 +3,7 @@ library(partykit)
 library(rpart)
 library(sqldf)
 data <- read.csv("C:\\Users\\Kul\\Downloads\\18 oct\\Classes\\Data Analytics\\Project Data.csv", header=TRUE, sep=",")
-str(data)
+str(data[,-1])
 attach(data)
 ```
 
