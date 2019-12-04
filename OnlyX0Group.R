@@ -54,7 +54,7 @@ for(data_new in all_data_choices){
   opt <- which.min(d_model_1$cptable [, "xerror"])
   cp <- d_model_1$cptable [opt,"CP"]
   DT_Model_1_pruned <- prune(d_model_1, cp=cp)
-  plot(as.party(DT_Model_1_pruned))
+  #plot(as.party(DT_Model_1_pruned))
   
   #Predicting the test data
   t_predict = predict(DT_Model_1_pruned, test, type = 'class')
