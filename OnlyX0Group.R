@@ -2,7 +2,6 @@ library(partykit)
 library(rpart)
 library(sqldf)
 
-setwd("C:\\Users\\Kul\\Downloads\\18 oct\\Classes\\Data Analytics")
 
 data <- read.csv("Project Data.csv", header=TRUE, sep=",")
 str(data)
