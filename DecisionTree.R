@@ -1,5 +1,16 @@
 library(partykit)
+
 library(rpart)
+#RPART: Recursive Partitioning And Regression Trees
+#-- DT Model <- rpart(RESPONSE-., data=Data, control=rpart.control(minsplit=60, minbucket=30, maxdepth=4))
+#-- formula: with response but no interaction terms. Can be a dataframe. Also called Predefined Target.
+#-- data: data frame in which to interpret the variables named in formual. Also called Predictor Attribute. 
+#-- control: list of options that controls details of rpart
+#----- minsplit: minimum no. of observations that must exist in a node for a split to be attempted. 
+#----- minbucket: minimum no. of observations in any terminal(leaf).
+#---------- If only one of misplit and minbucket defined: minsplit = minbucket * 3 || minbucket = minsplit / 3 is set.
+#----- maxdepth: maximum depth of any node of the final tree. Root at 0 depth. Value above 30 on 32 bit arch will give garbage result.
+
 library(sqldf)
 
 
